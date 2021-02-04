@@ -1,11 +1,8 @@
 {% extends "shared/_layout.html" %}
-{% block title %}About PyPI{% endblock %}
+{% block title %}{{ page_title }}{% endblock %}
 {% block main_content %}
 <h1>About Python Package Index</h1>
 <div>
-    This is my demo app.
+    {{ page_details }}
 </div>
-{% endblock %}
-
-{% block additional_css %}
 {% endblock %}

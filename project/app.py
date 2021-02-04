@@ -1,11 +1,12 @@
 from flask import Flask, render_template
-from views import home_views, package_views
+from views import home_views, package_views, cms_views
 
 app = Flask(__name__)
 
 def register_blueprints():
     app.register_blueprint(home_views.blueprint)
     app.register_blueprint(package_views.blueprint)
+    app.register_blueprint(cms_views.blueprint)
 
 def main():
     register_blueprints()
