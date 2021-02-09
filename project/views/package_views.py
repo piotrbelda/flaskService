@@ -21,7 +21,13 @@ def package_details(package_name: str):
         latest_release = package.releases[0]
         latest_version = latest_release.version_text
 
-    return {}
+    return {
+        'package': package,
+        'latest_version': latest_version,
+        'latest_release': latest_release,
+        'release_version': latest_release,
+        'is_latest': is_latest,
+    }
 
 @blueprint.route("/<int:rank>")
 def popular(rank: int):
