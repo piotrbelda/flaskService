@@ -7,8 +7,11 @@ blueprint = Blueprint("home",__name__, template_folder="templates")
 @blueprint.route("/")
 @response(template_file="home/index.html")
 def home():
-    test_packages = package_service.get_latest_packages()
-    return {"packages": test_packages}
+    test_packages = package_service.get_latest_releases()
+    return {"releases": test_packages,
+            "package_count": package_service.get_package_count(),
+            "release_count": package_service.get_release_count(),
+            "user_count": package_service.get_user_count()}
 
 @blueprint.route("/about")
 @response(template_file="home/about.html")
