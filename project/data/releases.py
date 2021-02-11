@@ -12,6 +12,7 @@ class Release(SqlAlchemyBase):
     build_ver = Column(BigInteger, index=True)
 
     created_date = Column(DateTime, default=datetime.datetime.now, index=True)
+    last_updated = Column(DateTime, default=datetime.datetime.now, index=True)
     comment = Column(String)
     url = Column(String)
     size = Column(BigInteger)
