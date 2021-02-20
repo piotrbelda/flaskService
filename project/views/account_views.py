@@ -1,5 +1,7 @@
 import flask
 from flask import request
+
+from infrastructure import request_dict
 from services import user_service
 from infrastructure.view_modifiers import response
 import infrastructure.cookie_auth as cookie_auth
@@ -62,9 +64,9 @@ def login_get():
 @blueprint.route('/account/login', methods=['POST'])
 @response(template_file='account/login.html')
 def login_post():
-    r = flask.request
-    email = r.form['email']
-    password = r.form['password']
+    data = request_dict.create()
+    email = data.email.lower().strip()
+    password = data.password.strip()
 
     if not email or not password:
         return {
